@@ -1,0 +1,33 @@
+/* pages/shopinfo/shopinfo.wxss */
+
+.swiper-shop-info {
+  height: 600rpx;
+}
+
+.swiper-image {
+  height: 600rpx;
+}
+
+.shop-info-title {
+  font-size: 50rpx;
+  font-weight: 900;
+  color: #000;
+  padding: 10rpx;
+}
+
+.month-sale {
+  font-size: 26rpx;
+  color: darkgray;
+  padding: 20rpx;
+  text-align: right;
+}
+
+.collection {
+  position: fixed;
+  bottom: 2rpx;
+  right: 2rpx;
+  background-color: #BF8600;
+  text-align: center;
+  border-radius: 20rpx;
+}
+

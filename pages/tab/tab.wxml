@@ -1,0 +1,25 @@
+<view class="">
+  <view class="tab">
+    <view class="tab-nav">
+      <text wx:for="{{tabnav.tabitem}}" bindtap="setTab" class="{{showtab==index?'active':''}}" data-tabindex="{{index}}">{{item.text}}</text>
+      <view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
+    </view>
+    <view class="tab-content" style="width: {{tabnav.tabnum*100}}%;transform:translateX(-{{showtab*100/tabnav.tabnum}}%);margin-left: {{marginleft}}px;">
+      <view class="tab-panel">
+        123
+      </view>
+      <view class="tab-panel">
+        456
+      </view>
+      <view class="tab-panel">
+        <view class="classname">111222</view>
+      </view>
+      <view class="tab-panel">
+        <view class="classname">2333</view>
+      </view>
+      <view class="tab-panel">
+        789
+      </view>
+    </view>
+  </view>
+</view>

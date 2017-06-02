@@ -1,0 +1,37 @@
+<view class="shop-info-content">
+  <!--轮播图-->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper-shop-info">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="ui-width-100 swiper-image" mode="aspectFit" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--空白-->
+  <view class="separate"></view>
+  <!--商品标题-->
+  <view class="shop-info-title">
+    <text>{{shopInfo.shopTitle}}
+    </text>
+  </view>
+
+  <!--商品快递,销量,地区-->
+  <view class="month-sale">
+    <text>{{shopInfo.sales}}</text>
+  </view>
+
+  <!--空白-->
+  <view class="separate"></view>
+
+  <!--商品详情图片列表-->
+  <view class="shop-info-img-list ui-width-100">
+    <block wx:for="{{shopInfoImgList}}">
+      <view class="ui-width-100" style="height:{{item.height}}">
+        <image mode="aspectFill" class="ui-width-100" src="{{item.imgUrl}}" style="height:{{item.height}}"></image>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+<button class="collection">点击收藏</button>
