@@ -8,28 +8,6 @@ page {
   width: 100%;
 }
 
-.nav {
-  width: 100%;
-  background-color: #fff;
-}
-
-.nav-item {
-  width: 25%;
-  display: inline-block;
-  padding: 10rpx;
-  box-sizing: border-box;
-}
-
-.nav-img {
-  width: 110rpx;
-  height: 114rpx;
-}
-
-.nav-text {
-  padding-top: 20rpx;
-  font-size: 30rpx;
-}
-
 .category-title {
   padding-top: 15rpx;
   padding-left: 20rpx;

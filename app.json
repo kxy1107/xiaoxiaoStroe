@@ -1,44 +1,49 @@
 {
-  "pages":[
-
+  "pages": [
     "pages/index/index",
     "pages/mine/mine",
+    "pages/classify/classify",
     "pages/collection/collection",
     "pages/shoplist/shoplist",
-     "pages/shopinfo/shopinfo"
-
+    "pages/shopinfo/shopinfo"
   ],
-  "window":{
+  "window": {
     "backgroundColor": "#f2f2f2",
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#BF8600",
     "navigationBarTitleText": "我的商城",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color":"#dddddd",
-    "selectedColor":"#BF8600",
-    "backgroundColor":"#323232",
-    "borderStyle":"black",
+    "color": "#dddddd",
+    "selectedColor": "#BF8600",
+    "backgroundColor": "#323232",
+    "borderStyle": "black",
     "list": [
       {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "img/index_icon.png",
-      "selectedIconPath": "img/index_icon_active.png"
-    },
-    {
-      "pagePath": "pages/collection/collection",
-      "text": "收藏",
-      "iconPath": "img/icon_collection_d.png",
-      "selectedIconPath": "img/icon_collection_p.png"
-    },
-    {
-      "pagePath": "pages/mine/mine",
-      "text": "联系我",
-      "iconPath": "img/icon_contact_me_d.png",
-      "selectedIconPath": "img/icon_contact_me_p.png"
-    }
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/index_icon.png",
+        "selectedIconPath": "img/index_icon_active.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "img/icon_classify_d.png",
+        "selectedIconPath": "img/icon_classify_p.png"
+      },
+      {
+        "pagePath": "pages/collection/collection",
+        "text": "收藏",
+        "iconPath": "img/icon_collection_d.png",
+        "selectedIconPath": "img/icon_collection_p.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "联系我",
+        "iconPath": "img/icon_contact_me_d.png",
+        "selectedIconPath": "img/icon_contact_me_p.png"
+      }
     ]
   }
 }

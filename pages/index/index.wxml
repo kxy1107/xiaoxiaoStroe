@@ -2,21 +2,11 @@
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
   <block wx:for="{{imgUrls}}">
     <swiper-item>
-      <image src="{{item}}" class="swiper-image" bindtap="swiperClick" />
+      <image src="{{item.img}}" data-id = "{{item.shopID}}" class="swiper-image" bindtap="swiperClick" />
     </swiper-item>
   </block>
 </swiper>
 
-<view class="separate"></view>
-<!--导航-->
-<view class="nav">
-  <view wx:for="{{navs}}" class="nav-item">
-    <view class="ui-flex-ver ui-flex-center " catchtap="navClick" data-type="{{item.text}}">
-      <image class="nav-img" src="{{item.icon}}"></image>
-      <text class="nav-text">{{item.text}}</text>
-    </view>
-  </view>
-</view>
 
 <!--最热-->
 <view class="category-title">

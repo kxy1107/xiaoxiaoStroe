@@ -1,0 +1,49 @@
+/* pages/classify/classify.wxss */
+.classify-body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display:flex;
+
+}
+.left-menu{
+  width: 200rpx;
+  height: 100%;
+  background-color: #eee;
+}
+.menu-item{
+  width: 200rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border-bottom:1px solid #ccc;
+}
+.item-active{
+ background: #fff;
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+
+.right-content{
+  width: 100%;
+  height: 100%;
+
+}
+.content-item {
+  display: inline-block;
+  padding: 10rpx;
+  box-sizing: border-box;
+  width: 33%;
+}
+.content-item-img{
+  width: 90rpx;
+  height: 90rpx;
+}
+.content-item-text{
+  padding: 5rpx;
+}

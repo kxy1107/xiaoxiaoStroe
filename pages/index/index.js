@@ -8,30 +8,7 @@ Page({
     autoplay: "true",//是否自动切换
     interval: "5000",//自动切换时间间隔
     duration: "1000",//滑动动画时长
-    showtab: 0,  //顶部选项卡索引
-    navs: [
-      {
-        icon: "../../img/icon_clothing.png",
-        text: "服装"
-      },
-      {
-        icon: "../../img/icon_shoes.png",
-        text: "鞋子"
-      },
-      {
-        icon: "../../img/icon_handbag.png",
-        text: "包包"
-      },
-      {
-        icon: "../../img/icon_jewelry.png",
-        text: "珠宝"
-      },
-      {
-        icon: "../../img/icon_artware.png",
-        text: "工艺品"
-      },
 
-    ],
     shopList: [
       {
         shopID: "1",
@@ -79,65 +56,44 @@ Page({
 
 
     imgUrls: [
-      "../../img/huawei_mate9.jpg",
-      "../../img/rongyao_v8.jpg",
-      "../../img/rongyao_play5c.jpg"
+      {
+        id:"111",
+        shopID:"1111",
+        img: "../../img/huawei_mate9.jpg",
+      },
+      {
+        id: "222",
+        shopID: "2222",
+        img: "../../img/rongyao_v8.jpg",
+      },
+      {
+        id: "333",
+        shopID: "3333",
+        img: "../../img/rongyao_play5c.jpg"
+      }
     ],
 
 
   },
-  setTab: function (e) { //设置选项卡选中索引
-    const edata = e.currentTarget.dataset;
-    this.setData({
-      showtab: Number(edata.tabindex),
-    })
-  },
+
 
   //点击轮播图
-  swiperClick: function () {
+  swiperClick: function (e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../pages/shopinfo/shopinfo?id=' + swiperIndex,
+      url: '../../pages/shopinfo/shopinfo?id=' + id,
     })
   },
 
 
-
-  //轮播图轮播事件
-  swiperChange: function (e) {
-    swiperIndex = e.detail.current
-  },
-  /**
-   * 首页导航点击事件
-   */
-  navClick: function (e) {
-    wx.navigateTo({
-      url: '../shoplist/shoplist?itemType=' + e.currentTarget.dataset.type,
-
-    })
-  },
-
-  /**
-   * 最热
-   */
-  volumeClick: function () {
-    wx.navigateTo({
-      url: '../../pages/shopinfo/shopinfo?id=' + swiperIndex,
-    })
-  },
-  /**
-   * 最新
-   */
-  newClick: function () {
-    wx.navigateTo({
-      url: '../../pages/shopinfo/shopinfo?id=' + swiperIndex,
-    })
-  },
   /**
    * 最火
    */
-  hotClick: function () {
+  itemClick: function (e) {
+
+    let shopID = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../pages/shopinfo/shopinfo?id=' + swiperIndex,
+      url: '../../pages/shopinfo/shopinfo?id=' + shopID,
     })
   },
 
