@@ -1,2 +1,20 @@
-<!--pages/collection/collection.wxml-->
-<text>pages/collection/collection.wxml</text>
+    <!--购物车商品列表-->
+    <view wx:for="{{cartShopList}}">
+      <view class="ui-flex ui-padding-10" data-item-index = "{{index}}" bindtap = "onItemClick">
+        <view>
+          <image class="cart-shop-img" src="{{item.shopImg}}"></image>
+        </view>
+        <view class="ui-pl-10 ui-pr-10">
+          <view>
+            <text class="cart-shop-title">{{item.shopTitle}}</text>
+          </view>
+          <view>
+            <text class="cart-shop-select-info ui-pt-10">{{item.shopSelectInfo}}</text>
+          </view>
+          <view class="ui-flex ui-pt-10">
+            <text class="cart-shop-price ui-width-20">￥{{item.shopPrice}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+    </view>

@@ -1,4 +1,7 @@
 /* pages/mine/mine.wxss */
+page{
+  background-color: #f7f7f7;
+}
 .userinfo{
  display: flex;
   flex-direction: column;
@@ -9,4 +12,27 @@
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
+}
+
+.contact-item{
+  width: 100%;
+  display: flex;
+  padding: 10rpx;
+  align-items: center;
+  background: #fff;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.contact-img{
+  width: 100rpx;
+  height: 100rpx;
+  padding: 20rpx;
+}
+.my-wechat-qr-code{
+width: 100%;
+text-align: center;
+}
+.my-wechat-qr-code-img{
+  width: 512rpx;
+  height: 512rpx;
 }
