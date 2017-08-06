@@ -98,5 +98,7 @@ Page({
   },
 
   onLoad: function () {
-  }
+    app.getUserInfo();
+  },
+  
 })
