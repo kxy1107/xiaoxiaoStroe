@@ -8,7 +8,7 @@ App({
 
   },
 
-  getUserInfo: function () {
+  getUserInfo: function (userInfoRes) {
     var that = this;
     wx.login({
       success: function (loginRes) {
@@ -25,10 +25,15 @@ App({
             }
             util.HttpGet(url, data, "正在登录",
               function (successRes) {
-                console.log(successRes);
+                if(successRes.Code == 1){
+                  that.globalData.userInfo = successRes.UserInfo;
+                }
+                return typeof userInfoRes == "function" && userInfoRes(successRes);
+               
+               
               },
               function (failRes) {
-
+                return typeof userInfoRes == "function" && userInfoRes(false);
               });
           }
         })

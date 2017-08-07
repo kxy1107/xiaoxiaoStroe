@@ -1,6 +1,6 @@
 <!--轮播图-->
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
-  <block wx:for="{{imgUrls}}">
+  <block wx:for="{{bannerList}}">
     <swiper-item>
       <image src="{{item.img}}" data-id = "{{item.shopID}}" class="swiper-image" bindtap="swiperClick" />
     </swiper-item>
@@ -19,16 +19,16 @@
 </view>
 
 <view class="item-container">
-  <block wx:for="{{shopList}}" wx:key="id">
-    <view class="shop-item" catchtap="itemClick" data-id="{{item.shopID}}">
-      <image class="huawei-item-img" src="{{item.imgUrl}}"></image>
+  <block wx:for="{{hotList}}" wx:key="ShopID">
+    <view class="shop-item" catchtap="itemClick" data-id="{{item.ShopID}}">
+      <image class="huawei-item-img" src="{{item.ImgUrl}}"></image>
       <view class="shop-info">
         <view class="huawei-item-title">
-          <text class="shop-title">{{item.shopName}}</text>
+          <text class="shop-title">{{item.ShopTitle}}</text>
         </view>
         <view>
-          <text class="item-price">{{item.price}}</text>
-          <text class="item-sales">{{item.sales}}</text>
+          <text class="item-price">{{item.ShopPrice}}</text>
+          <text class="item-sales">{{item.ShopViews}}</text>
         </view>
       </view>
     </view>
@@ -47,16 +47,16 @@
 </view>
 
  <view class="item-container">
-      <block wx:for="{{shopList}}" wx:key="id">
+      <block wx:for="{{newList}}" wx:key="ShopID">
         <view class="shop-item" catchtap = "itemClick" data-id = "{{item.shopID}}">
-          <image class="huawei-item-img" src="{{item.imgUrl}}"></image>
+          <image class="huawei-item-img" src="{{item.ImgUrl}}"></image>
           <view class = "shop-info">
             <view class="huawei-item-title">
-              <text class = "shop-title">{{item.shopName}}</text>
+              <text class = "shop-title">{{item.ShopTitle}}</text>
             </view>
             <view>
-              <text class="item-price">{{item.price}}</text>
-              <text class="item-sales">{{item.sales}}</text>
+              <text class="item-price">{{item.ShopPrice}}</text>
+              <text class="item-sales">{{item.ShopViews}}</text>
             </view>
           </view>
         </view>
