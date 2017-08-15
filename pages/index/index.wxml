@@ -2,7 +2,7 @@
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
   <block wx:for="{{bannerList}}">
     <swiper-item>
-      <image src="{{item.img}}" data-id = "{{item.shopID}}" class="swiper-image" bindtap="swiperClick" />
+      <image src="{{item.ImgUrl}}" data-id = "{{item.ShopID}}" class="swiper-image" bindtap="swiperClick" />
     </swiper-item>
   </block>
 </swiper>
@@ -48,7 +48,7 @@
 
  <view class="item-container">
       <block wx:for="{{newList}}" wx:key="ShopID">
-        <view class="shop-item" catchtap = "itemClick" data-id = "{{item.shopID}}">
+        <view class="shop-item" catchtap = "itemClick" data-id = "{{item.ShopID}}">
           <image class="huawei-item-img" src="{{item.ImgUrl}}"></image>
           <view class = "shop-info">
             <view class="huawei-item-title">

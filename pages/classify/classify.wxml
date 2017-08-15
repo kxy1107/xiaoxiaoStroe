@@ -2,16 +2,16 @@
 <view class="classify-body">
 <scroll-view scroll-y="true" class="left-menu">
     <block wx:for="{{classifyList}}">
-    <view class="menu-item {{index == curIndex ? 'item-active':''}}"  data-index="{{index}}" catchtap="onClickMenu">
-    {{item}}
+    <view class="menu-item {{index == curIndex ? 'item-active':''}}" data-index="{{index}}"  data-id="{{item.typeID}}" catchtap="onClickMenu">
+    {{item.typeName}}
     </view>
     </block>
   </scroll-view>
   <scroll-view scroll-y="true" class="right-content">
   <view wx:for="{{shopList}}" class="content-item">
-    <view class="ui-flex-ver ui-flex-center " catchtap="onItemClick" data-type = "{{item.shopTypeID}}">
-      <image class="content-item-img" src="{{item.shopImg}}"></image>
-      <text class="content-item-text">{{item.shopName}}</text>
+    <view class="ui-flex-ver ui-flex-center " catchtap="onItemClick" data-type = "{{item.subTypeID}}">
+      <image class="content-item-img" src="{{item.subTypeIcon}}"></image>
+      <text class="content-item-text">{{item.subTypeName}}</text>
     </view>
   </view>
   </scroll-view>

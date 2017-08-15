@@ -1,7 +1,7 @@
 /**index.wxss**/
 
 page {
-  background-color: #ececec;
+  /*background-color: #ececec;*/
 }
 
 .swiper-image {
@@ -14,6 +14,7 @@ page {
   padding-bottom: 15rpx;
   display: flex;
   align-items: center;
+  background-color: #ececec;
 }
 
 .small-icon-img {
@@ -78,10 +79,7 @@ page {
 
 .shop-title {
   max-width: 345rpx;
-  white-space: nowrap;
-  overflow: hidden;
   display: block;
-  text-overflow: clip;
 }
 
 .item-price {

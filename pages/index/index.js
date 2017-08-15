@@ -41,7 +41,7 @@ Page({
     let that = this;
     let url = app.globalData.serverAddress + 'getIndexInfo';
     let data = {
-      UserNo: "",
+      UserNo: app.globalData.userInfo.UserNo,
 
     };
     util.HttpGet(url, data, "正在加载",
