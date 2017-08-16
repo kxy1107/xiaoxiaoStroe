@@ -12,6 +12,7 @@ page {
   padding-top: 15rpx;
   padding-left: 20rpx;
   padding-bottom: 15rpx;
+  margin-top: 10rpx;
   display: flex;
   align-items: center;
   background-color: #ececec;
@@ -71,24 +72,32 @@ page {
 }
 
 .huawei-item-title {
-  padding: 10rpx;
   font-size: 28rpx;
   max-width: 345rpx;
   color: #c3c3c3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .shop-title {
   max-width: 345rpx;
   display: block;
+  
 }
 
 .item-price {
   font-size: 30rpx;
   color: red;
+  flex: 1;
 }
 
 .item-sales {
   font-size: 20rpx;
   color: #c3c3c3;
   margin-left: 15rpx;
+  text-align: right;
+  flex: 1;
+  padding: 5rpx 10rpx;
 }

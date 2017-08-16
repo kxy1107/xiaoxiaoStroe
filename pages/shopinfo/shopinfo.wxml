@@ -4,16 +4,13 @@
 
     <!--商品图片和价格、库存-->
     <view class="ui-flex ui-padding-10">
-      <image class="select-info-img" src="{{shopSelectInfo.selectInfoImg}}"></image>
+      <!-- <image class="select-info-img" src="{{shopSelectInfo.selectInfoImg}}"></image> -->
       <view catchtouchstart="noScroll">
         <view class="select-info-price ">
-          <text>{{shopSelectInfo.selectInfoprice}}</text>
+          <text>{{shopInfo.shopPrice}}</text>
         </view>
         <view>
-          <text class="select-info-inventory ui-padding-10">{{shopSelectInfo.selectInfoInventory}}</text>
-        </view>
-        <view>
-          <text class="select-info-select ui-padding-10">{{shopSelectInfo.shopSelectInfoHaveSelect}}</text>
+          <text class="select-info-select ui-padding-10">{{shopSelectInfoHaveSelect}}</text>
         </view>
       </view>
 
@@ -21,17 +18,17 @@
       <icon type="clear" class="select-info-close" catchtap="hiddenSelectInfo"></icon>
     </view>
     <scroll-view class="select-Info-Attribute-scroll" scroll-y="true">
-
+      <view class="line ui-mt-30"></view>
       <!--商品属性列表-->
       <view class="ui-width-100 ">
-        <block wx:for="{{shopSelectInfo.selectInfoAttributeList}}" wx:for-index="shopSelectIndex">
-          <view class="ui-width-100 ui-padding-10" style="height:{{item.height}}">
+        <block wx:for="{{shopInfo.attributeList}}" wx:for-index="shopSelectIndex">
+          <view class="ui-width-100 ui-padding-10">
             <view>
-              <text>{{item.AttributeName}}</text>
+              <text>{{item.attributeName}}</text>
             </view>
             <view class="ui-flex">
-              <block wx:for="{{item.AttributeNameList}}">
-                <view class="{{item.IsSelect ? 'select-info-attr-list-name-press' : 'select-info-attr-list-name'}} " data-select-index="{{shopSelectIndex}}" data-attr-index="{{index}}" data-attr-id="{{item.AttributeID}}" catchtap="clickAttr">{{item.Name}}</view>
+              <block wx:for="{{item.attributeValueList}}">
+                <view class="{{item.IsSelect ? 'select-info-attr-list-name-press' : 'select-info-attr-list-name'}} " data-select-index="{{shopSelectIndex}}" data-attr-index="{{index}}" data-attr-id="{{item.AttributeID}}" catchtap="clickAttr">{{item.attributeValue}}</view>
               </block>
             </view>
             <view class="line ui-mt-30"></view>
@@ -47,13 +44,13 @@
 
     <!--轮播图-->
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper-shop-info">
-      <block wx:for="{{imgUrls}}">
+      <block wx:for="{{shopInfo.bannerList}}">
         <swiper-item>
-          <image src="{{item}}" class="ui-width-100 swiper-image" mode="aspectFit" />
+          <image src="{{item.imgUrl}}" class="ui-width-100 swiper-image" mode="aspectFit" />
         </swiper-item>
       </block>
     </swiper>
-       <!--空白-->
+    <!--空白-->
     <view class="separate"></view>
     <!--商品标题-->
     <view class="shop-info-title">
@@ -63,39 +60,25 @@
 
     <!--商品价格-->
     <view class="shop-info-detail">
-      <text class="shop-info-price">{{shopInfo.shopPrice}}
+      <text class="shop-info-price">￥{{shopInfo.shopPrice}}
       </text>
-      <text class="month-sale">{{shopInfo.sales}}</text>
+      <text class="month-sale">{{shopInfo.shopViews}}</text>
     </view>
 
-
-    <!--空白-->
-    <view class="separate"></view>
-
-    <!--促销信息-->
-    <view class="ui-flex ui-padding-10">
-      <button class="shop-info-btn-chuxiao">促销</button>
-      <text class="shop-info-text-chuxiao">满99元享包邮;不包邮地区:台湾，香港，澳门，海外爽爽爽爽爽爽爽爽爽爽爽爽爽</text>
-    </view>
 
     <!--空白-->
     <view class="separate"></view>
 
     <!--选择配置-->
-    <view class="shop-info-select ui-padding-10 ui-flex" catchtap="showSelectInfo">
-      <text class="ui-width-100">选择类型</text>
+    <view class="shop-info-select ui-p20 ui-flex" catchtap="showSelectInfo">
+      <text>选择规格</text>
+      <text class="ui-enter">></text>
     </view>
 
     <!--空白-->
     <view class="separate"></view>
 
-    <!--商品详情图片列表-->
-    <view class="shop-info-img-list ui-width-100">
-      <block wx:for="{{shopInfoImgList}}">
-        <view class="ui-width-100" style="height:{{item.height}}">
-          <image mode="aspectFill" class="ui-width-100" src="{{item.imgUrl}}" style="height:{{item.height}}"></image>
-        </view>
-      </block>
-    </view>
+    <!--商品详情-->
+   
   </view>
 </scroll-view>

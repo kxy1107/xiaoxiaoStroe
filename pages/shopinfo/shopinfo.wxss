@@ -49,36 +49,12 @@ page{
 }
 
 
-
-.shop-info-btn-chuxiao {
-  margin-left: 0rpx;
-  margin-right: 10rpx;
-  padding-left: 4rpx;
-  padding-right: 4rpx;
-  line-height: 24rpx;
-  box-sizing: border-box;
-  font-size: 20rpx;
-  color: orangered;
-  border: orangered solid 1rpx;
-}
-
-.shop-info-text-chuxiao {
-  font-size: 26rpx;
-  color: darkgray;
-}
-
 .shop-info-select {
   font-size: 30rpx;
   font-weight: 600rpx;
   color: #000;
   text-align: left;
   line-height: 50rpx;
-}
-
-.shop-info-more-icon {
-  padding-top: 15rpx;
-  width: 20rpx;
-  height: 20rpx;
 }
 
 .btn-area button {
@@ -177,22 +153,7 @@ page{
   box-sizing:  border-box;
   padding: 0rpx 10rpx;
 }
-.num-subtraction{
-  height: 50rpx;
-  width: 80rpx;
-  background-color: #EDEDED;
-  color: #3C3C3C;
-  text-align: center;
-  margin-right: 10rpx;
-}
-.num-add{
-  height: 50rpx;
-  width: 80rpx;
-  background-color: #EDEDED;
-  color: #3C3C3C;
-  text-align: center;
-  margin-left:10rpx; 
-}
+
 .select-info-sumbit{
   border-radius: 0rpx;
 }

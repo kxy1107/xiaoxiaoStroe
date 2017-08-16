@@ -2,7 +2,7 @@
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
   <block wx:for="{{bannerList}}">
     <swiper-item>
-      <image src="{{item.ImgUrl}}" data-id = "{{item.ShopID}}" class="swiper-image" bindtap="swiperClick" />
+      <image src="{{item.ImgUrl}}" data-id="{{item.ShopID}}" class="swiper-image" bindtap="swiperClick" />
     </swiper-item>
   </block>
 </swiper>
@@ -26,13 +26,16 @@
         <view class="huawei-item-title">
           <text class="shop-title">{{item.ShopTitle}}</text>
         </view>
-        <view>
-          <text class="item-price">{{item.ShopPrice}}</text>
-          <text class="item-sales">{{item.ShopViews}}</text>
+        <view class="ui-flex ui-pt-10">
+          <text class="item-price">￥{{item.ShopPrice}}</text>
+          <text class="item-sales">{{item.ShopViews}}人浏览</text>
         </view>
       </view>
     </view>
   </block>
+  <view class="no-data" wx:if="{{hotList.length <= 0}}">
+    没有更多内容
+  </view>
 </view>
 
 <!--最新-->
@@ -46,19 +49,22 @@
   </view>
 </view>
 
- <view class="item-container">
-      <block wx:for="{{newList}}" wx:key="ShopID">
-        <view class="shop-item" catchtap = "itemClick" data-id = "{{item.ShopID}}">
-          <image class="huawei-item-img" src="{{item.ImgUrl}}"></image>
-          <view class = "shop-info">
-            <view class="huawei-item-title">
-              <text class = "shop-title">{{item.ShopTitle}}</text>
-            </view>
-            <view>
-              <text class="item-price">{{item.ShopPrice}}</text>
-              <text class="item-sales">{{item.ShopViews}}</text>
-            </view>
-          </view>
+<view class="item-container">
+  <block wx:for="{{newList}}" wx:key="ShopID">
+    <view class="shop-item" catchtap="itemClick" data-id="{{item.ShopID}}">
+      <image class="huawei-item-img" src="{{item.ImgUrl}}"></image>
+      <view class="shop-info">
+        <view class="huawei-item-title">
+          <text class="shop-title">{{item.ShopTitle}}</text>
         </view>
-      </block>
+        <view class="ui-flex ui-pt-10">
+          <text class="item-price">￥{{item.ShopPrice}}</text>
+          <text class="item-sales">{{item.ShopViews}}人浏览</text>
+        </view>
+      </view>
     </view>
+  </block>
+   <view class="no-data" wx:if="{{newList.length <= 0}}">
+    没有更多内容
+  </view>
+</view>
