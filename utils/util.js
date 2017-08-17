@@ -4,6 +4,7 @@
 function HttpGet(url, parm,loadingTitle,successRes,failRes) {
   if (!isNull(loadingTitle)){
     wx.showLoading({
+      mask:true,
       title: loadingTitle
     })
   }
