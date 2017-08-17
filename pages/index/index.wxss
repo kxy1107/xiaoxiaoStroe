@@ -1,8 +1,6 @@
 /**index.wxss**/
 
-page {
-  /*background-color: #ececec;*/
-}
+
 
 .swiper-image {
   width: 100%;

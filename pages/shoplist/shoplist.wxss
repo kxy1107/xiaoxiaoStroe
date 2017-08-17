@@ -1,7 +1,5 @@
 /* pages/huawei/huawei.wxss */
-page {
-  background-color: #ececec;
-}
+
 .null-hint {
   margin: 60rpx 10rpx 0 10rpx;
   padding: 40rpx 0;
@@ -15,8 +13,11 @@ page {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 10rpx;
   margin-top: 10rpx;
+}
+
+.huawei-scroll {
+  background-color: #ececec;
 }
 
 .shop-item {
@@ -26,35 +27,44 @@ page {
   box-sizing: border-box;
   padding: 5rpx;
 }
-.shop-info{
-    background-color: #ffffff;
-    padding-bottom: 10rpx;
+
+.shop-info {
+  background-color: #fff;
+  padding-bottom: 10rpx;
 }
 
 .huawei-item-img {
   width: 365rpx;
   height: 365rpx;
 }
-.huawei-item-title{
-    padding: 10rpx;
-    font-size: 28rpx;
-    max-width: 345rpx;
-    color: #c3c3c3;
-    
+
+.huawei-item-title {
+  font-size: 28rpx;
+  max-width: 345rpx;
+  color: #c3c3c3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
-.shop-title{
-    max-width: 345rpx;
-    white-space: nowrap;
-    overflow: hidden;
-    display:  block;
-    text-overflow: clip;
+
+.shop-title {
+  max-width: 345rpx;
+  display: block;
+  
 }
-.item-price{
-    font-size: 30rpx;
-    color: red;
+
+.item-price {
+  font-size: 30rpx;
+  color: red;
+  flex: 1;
 }
-.item-sales{
-    font-size: 20rpx;
-    color: #c3c3c3;
-    margin-left: 15rpx;
+
+.item-sales {
+  font-size: 20rpx;
+  color: #c3c3c3;
+  margin-left: 15rpx;
+  text-align: right;
+  flex: 1;
+  padding: 5rpx 10rpx;
 }

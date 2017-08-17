@@ -1,6 +1,7 @@
 // pages/shopinfo/shopinfo.js
 
-let attributeListInfo = [];
+let attributeListInfo = [];//属性列表
+let bannerImgList = [];//轮播图列表
 var app = getApp();
 let util = require("../../utils/util.js");
 var WxParse = require('../../wxParse/wxParse.js');
@@ -24,7 +25,7 @@ Page({
     //商品图片详情
     isShowSelectInfo: true,//是否隐藏选择信息详情
     shopSelectInfoHaveSelect: "已选",
-    selectAttributeValue: [],
+    selectAttributeValue: [],//选择的属性
 
 
 
@@ -48,6 +49,16 @@ Page({
   notScroll: function () {
 
   },
+  //点击轮播图图片
+  clickSwiperImg:function(e){
+    let url = e.currentTarget.dataset.url;
+    wx.previewImage({
+      current: url, // 当前显示图片的http链接
+      urls: bannerImgList // 需要预览的图片http链接列表
+    })
+  },
+
+
   //点击弹窗的商品属性
   clickAttr: function (e) {
     let attrIndex = e.currentTarget.dataset.attributeindex;
@@ -60,21 +71,48 @@ Page({
     };
     let selectArr = this.data.selectAttributeValue;
     selectArr[attrIndex] = selectInfo;
+    let selectText = "已选  ";
+    for (let key of selectArr){
+      selectText += key.attrName + ":" + key.valueName + "  ";
+    }
 
     this.setData({
-      selectAttributeValue: selectArr
+      selectAttributeValue: selectArr,
+      shopSelectInfoHaveSelect: selectText
     });
 
   },
 
 
-  //点击确定加入购物车
-  sumbitShopInfo: function () {
-    this.setData({
-      isShowSelectInfo: true,
-    });
+  //点击收藏
+  collectShop: function () {
+
+    let that = this;
+    let url = app.globalData.serverAddress + 'collectShop';
+    let data = {
+      UserNo: app.globalData.userInfo.UserNo,
+      ShopID: shopID,
+      SelectAttr: JSON.stringify(that.data.selectAttributeValue)
+
+    };
+    util.HttpGet(url, data, "loading",
+      function (successRes) {
+        if (successRes.Code == 1) {
+          wx.showToast({
+            title: '收藏成功',
+          });
+          that.setData({
+            isShowSelectInfo: true,
+          });
+        }
+
+      },
+      function (failRes) {
+
+      });
   },
 
+//获取商品信息
   getShopDetailInfo: function () {
     let that = this;
     let url = app.globalData.serverAddress + 'getShopInfoDetail';
@@ -90,6 +128,7 @@ Page({
             shopInfo: successRes.ShopInfoList
           });
           attributeListInfo = successRes.ShopInfoList.attributeList;
+          bannerImgList = successRes.ShopInfoList.bannerList.
           WxParse.wxParse('article', 'html', successRes.ShopInfoList.shopDescribe, that, 5);
         }
 
@@ -103,20 +142,6 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     shopID = options.id;
     this.getShopDetailInfo();
-
-    // shopDialogInfo = this.data.shopSelectInfo;
-    // var name = "";
-    // var size = shopDialogInfo.selectInfoAttributeList.length;
-    // for (var i = 0; i < size; i++) {
-    //   selectIndexArray.push({ key: i, value: shopDialogInfo.selectInfoAttributeList[i].AttributeNameList[0].Name });
-    //   name += ' "' + selectIndexArray[i].value + '" ';
-    // }
-
-    // shopDialogInfo.shopSelectInfoHaveSelect = "已选:" + name;
-    // this.setData({
-    //   shopSelectInfo: shopDialogInfo,
-    // });
-
     console.log("shopinfo:" + options)
   },
   onReady: function () {

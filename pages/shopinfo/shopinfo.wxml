@@ -34,7 +34,7 @@
         </view>
       </block>
     </scroll-view>
-    <button class="select-info-sumbit" bindtap="sumbitShopInfo" type="primary">收藏</button>
+    <button class="select-info-sumbit" bindtap="collectShop" type="primary">收藏</button>
   </view>
 </view>
 <scroll-view scroll-y="true" class="scroll">
@@ -44,7 +44,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper-shop-info">
       <block wx:for="{{shopInfo.bannerList}}">
         <swiper-item>
-          <image src="{{item.imgUrl}}" class="ui-width-100 swiper-image" mode="aspectFit" />
+          <image catchtap="clickSwiperImg" src="{{item.imgUrl}}" data-url="{{item.imgUrl}}" class="ui-width-100 swiper-image" mode="aspectFit" />
         </swiper-item>
       </block>
     </swiper>

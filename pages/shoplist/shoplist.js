@@ -1,51 +1,10 @@
 // pages/huawei/huawei.js
+var app = getApp();
+let util = require("../../utils/util.js");
+let typeID = "";
 Page({
   data: {
-    title: "",
-    shopList: [
-      {
-        shopID:"1",
-        imgUrl: "../../img/huawei_zhuanqu_1.jpg",
-        shopName: "【年货节|买赠99元大礼包】Huawei/华为 畅享6全网通4G智能手机",
-        price: "￥1299",
-        sales: "3401人付款"
-      },
-      {
-         shopID:"2",
-        imgUrl: "../../img/huawei_zhuanqu_2.jpg",
-        shopName: "【年货节】Huawei/华为 M3 平板电脑 8.4英寸哈曼卡顿联合设计",
-        price: "￥2288",
-        sales: "5386人付款"
-      },
-      {
-         shopID:"3",
-        imgUrl: "../../img/huawei_zhuanqu_3.jpg",
-        shopName: "【年货节|直降20元】华为路由 WS832 智能无线路由器1200M",
-        price: "￥249",
-        sales: "2560人付款"
-      },
-      {
-         shopID:"4",
-        imgUrl: "../../img/huawei_zhuanqu_4.jpg",
-        shopName: "【年货节|下单立减200|送178元礼】Huawei/华为 G9 青春版4G手机",
-        price: "￥1499",
-        sales: "5462人付款"
-      },
-      {
-         shopID:"5",
-        imgUrl: "../../img/huawei_zhuanqu_5.jpg",
-        shopName: "【年货节|直降100元起】Huawei/华为 华为畅享5S 双卡双待4G手机",
-        price: "￥999",
-        sales: "8336人付款"
-      },
-      {
-         shopID:"6",
-        imgUrl: "../../img/huawei_zhuanqu_6.jpg",
-        shopName: "【年货节|年度旗舰】Huawei/华为 Mate 9 32/64GB智能手机限量抢",
-        price: "￥3999",
-        sales: "3.1万人付款"
-      },
-    ],
+    shopList: [],
   },
 
 itemClick: function(e){
@@ -53,14 +12,39 @@ itemClick: function(e){
       url: '../../pages/shopinfo/shopinfo?id=' +e.currentTarget.dataset.id,
     })
 },
+//获取商品列表
+getShopList:function(){
+  let that = this;
+  let url = app.globalData.serverAddress + 'getShopList';
+  let data = {
+    UserNo: app.globalData.userInfo.UserNo,
+    TypeID: typeID,
+    PageSize: 100,
+    PageIndex: 0,
+
+  };
+  util.HttpGet(url, data, "正在加载",
+    function (successRes) {
+      if (successRes.Code == 1) {
+        that.setData({
+          shopList: successRes.ShopList
+        });
+      }
+
+    },
+    function (failRes) {
+
+    });
+},
+
 
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     console.log(options);
-    this.setData({
-      title: options.itemType
-    });
-    wx.setNavigationBarTitle({ title: this.data.title })
+    typeID = options.typeID;
+    let title = options.typeName;
+    wx.setNavigationBarTitle({ title: title });
+
 
   },
   onReady: function () {

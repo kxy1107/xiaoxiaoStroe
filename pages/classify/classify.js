@@ -24,9 +24,10 @@ Page({
 
   //点击子类型列表
   onItemClick: function (e) {
-    let shopTypeID = e.currentTarget.dataset.shopTypeID;
+    let shopTypeID = e.currentTarget.dataset.type;
+    let shopTypeName = e.currentTarget.dataset.name;
     wx.navigateTo({
-      url: '../../pages/shoplist/shoplist'
+      url: '../../pages/shoplist/shoplist?typeID=' + shopTypeID + "&typeName=" + shopTypeName
     })
   },
 

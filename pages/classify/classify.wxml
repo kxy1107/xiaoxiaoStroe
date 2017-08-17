@@ -9,7 +9,7 @@
   </scroll-view>
   <scroll-view scroll-y="true" class="right-content">
   <view wx:for="{{shopList}}" class="content-item">
-    <view class="ui-flex-ver ui-flex-center " catchtap="onItemClick" data-type = "{{item.subTypeID}}">
+    <view class="ui-flex-ver ui-flex-center " catchtap="onItemClick" data-type = "{{item.subTypeID}}" data-name="{{item.subTypeName}}">
       <image class="content-item-img" src="{{item.subTypeIcon}}"></image>
       <text class="content-item-text">{{item.subTypeName}}</text>
     </view>
