@@ -1,5 +1,8 @@
 /* pages/huawei/huawei.wxss */
-
+page{
+  background-color: #eaeaea;
+  height: auto;
+}
 .null-hint {
   margin: 60rpx 10rpx 0 10rpx;
   padding: 40rpx 0;
@@ -14,6 +17,7 @@
   flex-wrap: wrap;
   width: 100%;
   margin-top: 10rpx;
+  background-color: #ffffff;
 }
 
 .huawei-scroll {

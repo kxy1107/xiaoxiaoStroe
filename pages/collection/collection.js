@@ -1,4 +1,6 @@
 // pages/shopcart/shopcart.js
+var app = getApp();
+let util = require("../../utils/util.js");
 Page({
   data: {
     // cartShopList: [
@@ -44,9 +46,9 @@ Page({
 
 
   onItemClick: function (e) {
-    var index = e.currentTarget.dataset.itemIndex;
+    var id = e.currentTarget.dataset.shopid;
     wx.navigateTo({
-      url: '../../pages/shopinfo/shopinfo?id=' + e.currentTarget.dataset.itemIndex,
+      url: '../../pages/shopinfo/shopinfo?id=' + id,
     })
   },
 //获取收藏列表
@@ -67,12 +69,14 @@ Page({
             list.shopID = key["shopID"];
             list.shopTitle = key["shopTitle"];
             list.shopPrice = key["shopPrice"];
+            list.shopCoverImg = key["shopCoverImg"];
             list.shopSelectInfo = JSON.parse(key["shopSelectInfo"]);
             collectList.push(list);
           }
           that.setData({
             collectList:collectList
           });
+    
         }
 
       },
@@ -83,6 +87,7 @@ Page({
 
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
+    this.getCollectList();
   },
   onReady: function () {
     // 页面渲染完成

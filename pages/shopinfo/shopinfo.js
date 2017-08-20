@@ -104,6 +104,10 @@ Page({
           that.setData({
             isShowSelectInfo: true,
           });
+        }else{
+          wx.showToast({
+            title: successRes.Message,
+          });
         }
 
       },
@@ -128,7 +132,7 @@ Page({
             shopInfo: successRes.ShopInfoList
           });
           attributeListInfo = successRes.ShopInfoList.attributeList;
-          bannerImgList = successRes.ShopInfoList.bannerList.
+          bannerImgList = successRes.ShopInfoList.bannerList;
           WxParse.wxParse('article', 'html', successRes.ShopInfoList.shopDescribe, that, 5);
         }
 

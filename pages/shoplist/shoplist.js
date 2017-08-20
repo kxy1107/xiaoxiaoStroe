@@ -44,6 +44,7 @@ getShopList:function(){
     typeID = options.typeID;
     let title = options.typeName;
     wx.setNavigationBarTitle({ title: title });
+    this.getShopList();
 
 
   },
