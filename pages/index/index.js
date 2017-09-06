@@ -63,8 +63,11 @@ Page({
   onLoad: function () {
     let that = this;
     app.getUserInfo(function (res) {
+      console.log("index--app.getUserInfo");
+      console.log(res)
       if (res) {
         that.getIndexInfo();
+        console.log("index--that.getIndexInfo()");
       }
     });
   },

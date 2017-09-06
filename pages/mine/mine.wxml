@@ -1,14 +1,10 @@
 <!--pages/mine/mine.wxml-->
 <view>
-  <view class="userinfo">
-    <image class="avatar-url" src="{{userInfo.avatarUrl}}"></image>
-    <text>{{userInfo.nickName}}</text>
-  </view>
   <view>
     <block wx:for="{{contactList}}">
       <view class="contact-item" catchtap="onItemClick" data-index="{{index}}">
-        <image class="contact-img" src="{{item.contactIcon}}"></image>
-        <text>{{item.contactIconName}}</text>
+        <image class="contact-img" src="{{item.ContactIcon}}"></image>
+        <text>{{item.ContactIconName}}</text>
       </view>
     </block>
   </view>

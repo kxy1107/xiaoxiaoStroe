@@ -12,8 +12,11 @@ App({
     var that = this;
     wx.login({
       success: function (loginRes) {
+        console.log("app.js --login-success ")
         wx.getUserInfo({
           success: function (res) {
+            console.log("app.js --getUserInfo-success ")
+            console.log(res)
             let code = loginRes.code;
             let iv = res.iv;
             let encryptedData = res.encryptedData;
@@ -25,6 +28,8 @@ App({
             }
             util.HttpGet(url, data, "正在登录",
               function (successRes) {
+                console.log("successRes")
+                console.log(successRes)
                 if(successRes.Code == 1){
                   that.globalData.userInfo = successRes.UserInfo;
                 }
@@ -33,6 +38,8 @@ App({
                
               },
               function (failRes) {
+                console.log("failRes")
+                console.log(failRes)
                 return typeof userInfoRes == "function" && userInfoRes(false);
               });
           }
@@ -44,7 +51,7 @@ App({
 
   globalData: {
     userInfo: null,
-    serverAddress: 'http://localhost:8028/wx/',
+    serverAddress: 'http://192.168.11.123:8028/wx/',
     otherAddressInfo: null,
   }
 })

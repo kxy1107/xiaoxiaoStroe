@@ -1,6 +1,6 @@
     <!--购物车商品列表-->
     <view wx:for="{{collectList}}">
-      <view class="ui-flex ui-p10" data-shopid = "{{item.shopID}}" data-id = "{{item.collectionID}}" catchtap="onItemClick">
+      <view class="ui-flex ui-p10" data-shopid = "{{item.shopID}}" data-id = "{{item.collectionID}}" catchtap="onItemClick" data-title = "{{item.shopTitle}}" catchlongpress='onItemLongClick'>
         <view >
           <image class="cart-shop-img" src="{{item.shopCoverImg}}"></image>
         </view>

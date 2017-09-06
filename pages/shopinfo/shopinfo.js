@@ -70,10 +70,13 @@ Page({
       valueName: attributeListInfo[attrIndex].attributeValueList[valueIndex].attributeValue,
     };
     let selectArr = this.data.selectAttributeValue;
+  
     selectArr[attrIndex] = selectInfo;
     let selectText = "已选  ";
     for (let key of selectArr){
-      selectText += key.attrName + ":" + key.valueName + "  ";
+      if(typeof(key) != "undefined"){
+        selectText += key.attrName + ":" + key.valueName + "  ";
+      }
     }
 
     this.setData({

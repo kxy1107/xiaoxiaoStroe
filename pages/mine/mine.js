@@ -1,25 +1,10 @@
 // pages/mine/mine.js
+var app = getApp();
+let util = require("../../utils/util.js");
 Page({
   data:{
-    userInfo:null,
-    myWechatImg:"../../img/my_wechat.jpg",
-    contactList:[
-      {
-        contactType:"phone",
-        contactIcon:"../../img/icon_contact_phone.png",
-        contactIconName:"15111112222"
-      },
-      {
-        contactType: "qq",
-        contactIcon: "../../img/icon_contact_qq.png",
-        contactIconName: "573240000"
-      },
-      {
-        contactType: "wechat",
-        contactIcon: "../../img/icon_contact_wechat.png",
-        contactIconName: "xiaoke"
-      },
-    ]
+    myWechatImg:"",
+    contactList:[],
   },
 
   onItemClick:function(e){
@@ -38,18 +23,39 @@ Page({
     })
   },
 
+
+  getMyInfo:function(){
+    let that = this;
+    let url = app.globalData.serverAddress + 'getMyInfo';
+    let data = {
+      UserNo: app.globalData.userInfo.UserNo,
+
+    };
+    util.HttpGet(url, data, "",
+      function (successRes) {
+        if (successRes.Code == 1) {
+          that.setData({
+            myWechatImg: successRes.MyInfo.QrCode,
+            contactList: successRes.MyInfo.ContactList,
+          });
+        }
+
+      },
+      function (failRes) {
+
+      });
+  },
+
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    
+    this.getMyInfo();
   },
   onReady:function(){
     // 页面渲染完成
   },
   onShow:function(){
     // 页面显示
-    this.setData({
-      userInfo:getApp().globalData.userInfo,
-    });
+    
   },
   onHide:function(){
     // 页面隐藏

@@ -40,7 +40,7 @@ Page({
     //     shopCount: 5,
     //   }
     // ]
-    collectList:[],//收藏列表
+    collectList: [],//收藏列表
 
   },
 
@@ -51,8 +51,24 @@ Page({
       url: '../../pages/shopinfo/shopinfo?id=' + id,
     })
   },
-//获取收藏列表
-  getCollectList:function(){
+
+  onItemLongClick: function (e) {
+    var id = e.currentTarget.dataset.shopid;
+    var title = e.currentTarget.dataset.title;
+    wx.showModal({
+      title: '删除提示',
+      content: '删除【 ' + title + '】？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  //获取收藏列表
+  getCollectList: function () {
 
     let that = this;
     let url = app.globalData.serverAddress + 'getCollectList';
@@ -63,7 +79,7 @@ Page({
       function (successRes) {
         if (successRes.Code == 1) {
           let collectList = [];
-          for (let key of successRes.CollectList){
+          for (let key of successRes.CollectList) {
             let list = {};
             list.collectionID = key["collectionID"];
             list.shopID = key["shopID"];
@@ -74,9 +90,9 @@ Page({
             collectList.push(list);
           }
           that.setData({
-            collectList:collectList
+            collectList: collectList
           });
-    
+
         }
 
       },
@@ -85,16 +101,18 @@ Page({
       });
   },
 
+
+
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    this.getCollectList();
+
   },
   onReady: function () {
     // 页面渲染完成
   },
   onShow: function () {
     // 页面显示
-
+    this.getCollectList();
 
 
   },
