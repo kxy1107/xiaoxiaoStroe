@@ -16,9 +16,12 @@ itemClick: function(e){
 getShopList:function(){
   let that = this;
   let url = app.globalData.serverAddress + 'getShopList';
+  let userNo = app.globalData.userInfo == null ? "" : app.globalData.userInfo.UserNo;
+  let belongUser = app.globalData.belongUser == null ? "" : app.globalData.belongUser;
   let data = {
-    UserNo: app.globalData.userInfo.UserNo,
+    UserNo: userNo,
     TypeID: typeID,
+    BelongUser:belongUser,
     PageSize: 100,
     PageIndex: 0,
 

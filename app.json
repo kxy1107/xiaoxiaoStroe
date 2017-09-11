@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/registerShop/registerShop",
     "pages/index/index",
     "pages/mine/mine",
     "pages/classify/classify",

@@ -51,7 +51,9 @@ App({
 
   globalData: {
     userInfo: null,
+   // serverAddress: 'https://afsc.jianyuejizhang.cn/wx/',
     serverAddress: 'http://192.168.11.123:8028/wx/',
     otherAddressInfo: null,
+    belongUser:"9A91BB01C585D794A24B498D4F591097",
   }
 })

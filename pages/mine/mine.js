@@ -3,8 +3,7 @@ var app = getApp();
 let util = require("../../utils/util.js");
 Page({
   data:{
-    myWechatImg:"",
-    contactList:[],
+    myInfo:null,
   },
 
   onItemClick:function(e){
@@ -34,10 +33,13 @@ Page({
     util.HttpGet(url, data, "",
       function (successRes) {
         if (successRes.Code == 1) {
-          that.setData({
-            myWechatImg: successRes.MyInfo.QrCode,
-            contactList: successRes.MyInfo.ContactList,
-          });
+          if (successRes.MyInfo != null){
+            that.setData({
+              myInfo: successRes.MyInfo
+            });
+            app.globalData.belongUser = UserNo;
+          }
+          
         }
 
       },
@@ -47,8 +49,15 @@ Page({
   },
 
   onLoad:function(options){
+    let that = this;
     // 页面初始化 options为页面跳转所带来的参数
-    this.getMyInfo();
+    app.getUserInfo(function (res) {
+      if (res) {
+        that.getMyInfo();
+        console.log("index--that.getIndexInfo()");
+      }
+    });
+   
   },
   onReady:function(){
     // 页面渲染完成

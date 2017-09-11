@@ -92,10 +92,13 @@ Page({
 
     let that = this;
     let url = app.globalData.serverAddress + 'collectShop';
+    let userNo = app.globalData.userInfo == null ? "" : app.globalData.userInfo.UserNo;
+    let belongUser = app.globalData.belongUser == null ? "" : app.globalData.belongUser;
     let data = {
-      UserNo: app.globalData.userInfo.UserNo,
+      UserNo: userNo,
       ShopID: shopID,
-      SelectAttr: JSON.stringify(that.data.selectAttributeValue)
+      SelectAttr: JSON.stringify(that.data.selectAttributeValue),
+      BelongUser:belongUser,
 
     };
     util.HttpGet(url, data, "loading",
@@ -123,9 +126,12 @@ Page({
   getShopDetailInfo: function () {
     let that = this;
     let url = app.globalData.serverAddress + 'getShopInfoDetail';
+    let userNo = app.globalData.userInfo.UserNo == null ? "" : app.globalData.userInfo.UserNo;
+    let belongUser = app.globalData.belongUser == null ? "" : app.globalData.belongUser;
     let data = {
-      UserNo: app.globalData.userInfo.UserNo,
-      ShopID: shopID
+      UserNo: userNo,
+      ShopID: shopID,
+      BelongUser:belongUser,
 
     };
     util.HttpGet(url, data, "正在加载",

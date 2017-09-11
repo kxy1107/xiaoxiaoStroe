@@ -40,8 +40,11 @@ Page({
   getIndexInfo: function () {
     let that = this;
     let url = app.globalData.serverAddress + 'getIndexInfo';
+    let userNo = app.globalData.userInfo == null ? "" : app.globalData.userInfo.UserNo ;
+    let belongUser = app.globalData.belongUser == null ? "" : app.globalData.belongUser ;
     let data = {
-      UserNo: app.globalData.userInfo.UserNo,
+      UserNo: userNo,
+      BelongUser:belongUser,
 
     };
     util.HttpGet(url, data, "正在加载",
@@ -62,14 +65,15 @@ Page({
 
   onLoad: function () {
     let that = this;
-    app.getUserInfo(function (res) {
-      console.log("index--app.getUserInfo");
-      console.log(res)
-      if (res) {
-        that.getIndexInfo();
-        console.log("index--that.getIndexInfo()");
-      }
-    });
+    that.getIndexInfo();
+    // app.getUserInfo(function (res) {
+    //   console.log("index--app.getUserInfo");
+    //   console.log(res)
+    //   if (res) {
+    //     that.getIndexInfo();
+    //     console.log("index--that.getIndexInfo()");
+    //   }
+    // });
   },
 
 })

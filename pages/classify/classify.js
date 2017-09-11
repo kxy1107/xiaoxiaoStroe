@@ -35,8 +35,11 @@ Page({
   getTypeList: function () {
     let that = this;
     let url = app.globalData.serverAddress + 'getTypeList';
+    let userNo = app.globalData.userInfo == null ? "" : app.globalData.userInfo.UserNo;
+    let belongUser = app.globalData.belongUser == null ? "" : app.globalData.belongUser;
     let data = {
-      UserNo: app.globalData.userInfo.UserNo,
+      UserNo: userNo,
+      BelongUser:belongUser,
 
     };
     util.HttpGet(url, data, "正在加载",
@@ -59,9 +62,12 @@ Page({
     let that = this;
     let typeID = that.data.classifyList[that.data.curIndex].typeID;
     let url = app.globalData.serverAddress + 'getSubTypeList';
+    let userNo = app.globalData.userInfo == null ? "" : app.globalData.userInfo.UserNo;
+    let belongUser = app.globalData.belongUser == null ? "" : app.globalData.belongUser;
     let data = {
-      UserNo: app.globalData.userInfo.UserNo,
+      UserNo: userNo,
       TypeID: typeID,
+      BelongUser: belongUser,
     };
     util.HttpGet(url, data, "正在加载",
       function (successRes) {
