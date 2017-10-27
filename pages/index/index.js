@@ -75,5 +75,18 @@ Page({
     //   }
     // });
   },
+  onShareAppMessage: function (res) {
+  
+    return {
+      title: '买买买个蛋',
+      path: 'pages/index/index',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  }
 
 })

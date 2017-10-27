@@ -67,6 +67,7 @@
 .huawei-item-img {
   width: 365rpx;
   height: 365rpx;
+  border: 1rpx solid gray;
 }
 
 .huawei-item-title {

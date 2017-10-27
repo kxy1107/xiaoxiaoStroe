@@ -1,2 +1,13 @@
 <!--pages/registerShop/registerShop.wxml-->
-<text>pages/registerShop/registerShop.wxml</text>
+<view class='page-content' wx:if="{{noRegister}}">
+  <input class='input-border' placeholder='请输入手机号' focus='true'  type ="number" bindinput='inputPhone'></input>
+  <input class='input-border' placeholder='登录密码最小为6位' password='true'  bindinput='inputPassWord'></input>
+  <input class='input-border' placeholder='再次确认密码' password='true'  bindinput='inputPassWordAgain'></input>
+  <button catchtap='onClickRegister' type='primary'>立即注册</button>
+</view>
+
+<view wx:else>
+  已成功注册成为商家，可以前往
+  <text selectable='true' class='back-link'>http://jianyuejizhang.cn/</text> 登录上传商品
+  <button catchtap='onClickClose' type='primary'>关闭本页</button>
+</view>

@@ -169,5 +169,18 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
+  },
+  onShareAppMessage: function (res) {
+
+    return {
+      title: this.data.shopInfo.shopTitle,
+      path: 'pages/shopinfo/shopinfo?id=' + shopID,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

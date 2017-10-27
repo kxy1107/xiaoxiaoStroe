@@ -1,1 +1,12 @@
 /* pages/registerShop/registerShop.wxss */
+.page-content{
+  padding: 20rpx;
+}
+.input-border{
+  border: 1rpx solid gray;
+  padding: 20rpx;
+  margin:  40rpx 0;
+}
+.back-link{
+  color: blue;
+}

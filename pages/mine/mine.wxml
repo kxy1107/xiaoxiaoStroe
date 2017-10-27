@@ -1,18 +1,16 @@
 <!--pages/mine/mine.wxml-->
-<view wx:if = "{{myInfo == null}}">
-<text>你还不是商家，注册成为商家即可上传产品</text>
-<button type='primary'>立即注册</button>
-</view>
-<view wx:else>
+
+<view>
   <view>
     <block wx:for="{{myInfo.ContactList}}">
       <view class="contact-item" catchtap="onItemClick" data-index="{{index}}">
         <image class="contact-img" src="{{item.ContactIcon}}"></image>
-        <text>{{item.ContactIconName}}</text>
+        <text>{{item.ContactIconName == null ? "暂无" : item.ContactIconName}}</text>
       </view>
     </block>
   </view>
   <view class="my-wechat-qr-code" catchtap="onClickQrCode">
     <image class="my-wechat-qr-code-img" src="{{myInfo.QrCode}}"></image>
   </view>
+  <button catchtap='onClickRegisterNow' type='primary'>我也要上传商品</button>
 </view>
