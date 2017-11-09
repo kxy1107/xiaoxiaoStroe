@@ -9,7 +9,7 @@
       </view>
     </block>
   </view>
-  <view class="my-wechat-qr-code" catchtap="onClickQrCode">
+  <view wx:if = "{{myInfo.QrCode}}" class="my-wechat-qr-code" catchtap="onClickQrCode">
     <image class="my-wechat-qr-code-img" src="{{myInfo.QrCode}}"></image>
   </view>
   <button catchtap='onClickRegisterNow' type='primary'>我也要上传商品</button>

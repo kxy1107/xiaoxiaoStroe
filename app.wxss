@@ -119,6 +119,9 @@ flex:1;
 .ui-mr-10{
    margin-right: 10rpx;
 }
+.ui-mt-20{
+   margin-top: 20rpx;
+}
 .ui-mt-30{
    margin-top: 30rpx;
 }

@@ -1,6 +1,8 @@
 /* pages/mine/mine.wxss */
 page{
   background-color: #f7f7f7;
+  height: auto;
+  
 }
 .userinfo{
  display: flex;
@@ -22,6 +24,7 @@ page{
   background: #fff;
   margin-top: 10rpx;
   margin-bottom: 10rpx;
+  box-sizing: border-box;
 }
 .contact-img{
   width: 100rpx;
@@ -33,6 +36,6 @@ width: 100%;
 text-align: center;
 }
 .my-wechat-qr-code-img{
-  width: 512rpx;
-  height: 512rpx;
+  width: 400rpx;
+  height: 400rpx;
 }

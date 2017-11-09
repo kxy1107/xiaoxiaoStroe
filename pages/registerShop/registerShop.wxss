@@ -1,12 +1,25 @@
 /* pages/registerShop/registerShop.wxss */
-.page-content{
+
+.page-content {
   padding: 20rpx;
 }
-.input-border{
+
+.input-border {
   border: 1rpx solid gray;
   padding: 20rpx;
-  margin:  40rpx 0;
+  margin: 40rpx 0;
+
 }
-.back-link{
+
+.back-link {
   color: blue;
+}
+
+.register-know{
+  color: gray;
+  font-size: 24rpx;
+}
+.platform-protocol{
+  color: #0f88eb;
+  font-size: 24rpx;
 }

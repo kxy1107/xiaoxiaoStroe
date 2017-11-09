@@ -1,14 +1,13 @@
 {
   "pages": [
-     
     "pages/index/index",
-  "pages/registerShop/registerShop",
+    "pages/registerShop/registerShop",
+    "pages/platformProtocol/platformProtocol",
     "pages/mine/mine",
     "pages/classify/classify",
     "pages/collection/collection",
     "pages/shoplist/shoplist",
     "pages/shopinfo/shopinfo"
-    
   ],
   "window": {
     "backgroundColor": "#f2f2f2",

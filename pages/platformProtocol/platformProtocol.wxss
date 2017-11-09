@@ -1,0 +1,7 @@
+/* pages/platformProtocol/platformProtocol.wxss */
+
+page {
+  color: gray;
+  padding: 20rpx;
+  font-size: 28rpx;
+}

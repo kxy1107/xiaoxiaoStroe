@@ -24,6 +24,13 @@ Page({
     passwordAgain = e.detail.value;
   },
 
+
+  onClickPlatform:function(){
+    wx.navigateTo({
+      url: '../platformProtocol/platformProtocol',
+    });
+  },
+
   //点击注册
   onClickRegister: function () {
     if (!this.checkInput()) {
