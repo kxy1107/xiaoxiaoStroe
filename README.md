@@ -7,10 +7,10 @@
 <img width="216" height="384" src="https://github.com/kxy1107/xiaoxiaoStroe/raw/master/readmeSrc/scDemo4.png"  alt="无法显示图片"/>
 
 
-##服务部分（微信小程序和后台管理系统）
+## 服务部分（微信小程序和后台管理系统）
 [服务部分（node.js后台）](https://github.com/kxy1107/XiaoXiaoStoreServer) 
 
-#后台管理系统部分
+## 后台管理系统部分
 [后台管理系统部分（Vue.js）](https://github.com/kxy1107/XiaoXiaoStoreBack) 
 
 
