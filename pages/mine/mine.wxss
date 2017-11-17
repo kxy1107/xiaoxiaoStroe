@@ -39,3 +39,6 @@ text-align: center;
   width: 400rpx;
   height: 400rpx;
 }
+.back-link {
+  color: blue;
+}

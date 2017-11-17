@@ -1,9 +1,12 @@
 // pages/mine/mine.js
 var app = getApp();
 let util = require("../../utils/util.js");
+let belongUser = "";
 Page({
   data: {
     myInfo: null,
+    checking: false,
+    isMySelf: false,
   },
 
   onItemClick: function (e) {
@@ -34,7 +37,7 @@ Page({
     let that = this;
     let url = app.globalData.serverAddress + 'getMyInfo';
     let data = {
-      UserNo: app.globalData.userInfo.UserNo,
+      UserNo: app.globalData.belongUser,
 
     };
     util.HttpGet(url, data, "",
@@ -43,12 +46,60 @@ Page({
           if (successRes.MyInfo != null) {
             that.setData({
               myInfo: successRes.MyInfo
+
             });
-            app.globalData.belongUser = app.globalData.userInfo.UserNo;
           }
 
+        } else {
+          that.setData({
+            checking: true,
+          });
         }
 
+      },
+      function (failRes) {
+
+      });
+  },
+
+  clickEnterMyShop: function () {
+    if (belongUser == "checking") {
+      wx.showToast({
+        title: '正在审核中，请耐心等待',
+      })
+    } else if (belongUser == "") {
+      wx.showToast({
+        title: '请先注册成为商家',
+      })
+    } else {
+      app.globalData.belongUser = belongUser;
+      wx.switchTab({
+        url: '../../pages/index/index',
+      })
+    }
+
+  },
+
+  //获取当前用户商店
+  enterMyShop: function () {
+    let that = this;
+    let url = app.globalData.serverAddress + 'getMyInfo';
+    let data = {
+      UserNo: app.globalData.userInfo.UserNo,
+    };
+    util.HttpGet(url, data, "",
+      function (successRes) {
+        if (successRes.Code == 1) {
+          if (successRes.MyInfo != null) {
+            belongUser = app.globalData.userInfo.UserNo;
+            that.setData({
+              isMySelf: true
+            });
+
+          } else {
+            belongUser = "checking"
+          }
+        }
       },
       function (failRes) {
 
@@ -67,6 +118,7 @@ Page({
         }
       });
     }
+    that.enterMyShop();
 
 
   },
@@ -78,6 +130,7 @@ Page({
     if (this.data.myInfo == null) {
       this.getMyInfo();
     }
+
 
   },
   onHide: function () {

@@ -50,7 +50,7 @@ Page({
 
   },
   //点击轮播图图片
-  clickSwiperImg:function(e){
+  clickSwiperImg: function (e) {
     let url = e.currentTarget.dataset.url;
     wx.previewImage({
       current: url, // 当前显示图片的http链接
@@ -70,11 +70,11 @@ Page({
       valueName: attributeListInfo[attrIndex].attributeValueList[valueIndex].attributeValue,
     };
     let selectArr = this.data.selectAttributeValue;
-  
+
     selectArr[attrIndex] = selectInfo;
     let selectText = "已选  ";
-    for (let key of selectArr){
-      if(typeof(key) != "undefined"){
+    for (let key of selectArr) {
+      if (typeof (key) != "undefined") {
         selectText += key.attrName + ":" + key.valueName + "  ";
       }
     }
@@ -98,7 +98,7 @@ Page({
       UserNo: userNo,
       ShopID: shopID,
       SelectAttr: JSON.stringify(that.data.selectAttributeValue),
-      BelongUser:belongUser,
+      BelongUser: belongUser,
 
     };
     util.HttpGet(url, data, "loading",
@@ -110,7 +110,7 @@ Page({
           that.setData({
             isShowSelectInfo: true,
           });
-        }else{
+        } else {
           wx.showToast({
             title: successRes.Message,
           });
@@ -122,7 +122,7 @@ Page({
       });
   },
 
-//获取商品信息
+  //获取商品信息
   getShopDetailInfo: function () {
     let that = this;
     let url = app.globalData.serverAddress + 'getShopInfoDetail';
@@ -131,7 +131,7 @@ Page({
     let data = {
       UserNo: userNo,
       ShopID: shopID,
-      BelongUser:belongUser,
+      BelongUser: belongUser,
 
     };
     util.HttpGet(url, data, "正在加载",
@@ -154,6 +154,9 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     shopID = options.id;
+    if (typeof options.belongUser != "undefined" && options.belongUser != "") {
+      app.globalData.belongUser = options.belongUser;
+    }
     this.getShopDetailInfo();
     console.log("shopinfo:" + options)
   },
@@ -174,7 +177,7 @@ Page({
 
     return {
       title: this.data.shopInfo.shopTitle,
-      path: 'pages/shopinfo/shopinfo?id=' + shopID,
+      path: 'pages/shopinfo/shopinfo?id=' + shopID + "&belongUser=" + app.globalData.belongUser,
       success: function (res) {
         // 转发成功
       },

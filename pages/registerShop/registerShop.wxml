@@ -1,11 +1,14 @@
 <!--pages/registerShop/registerShop.wxml-->
-<view class='page-content' wx:if="{{noRegister}}">
-  <input class='input-border' placeholder='请输入手机号' focus='true' type="number" bindinput='inputPhone'></input>
-  <input class='input-border' placeholder='登录密码最小为6位' password='true' bindinput='inputPassWord'></input>
-  <input class='input-border' placeholder='再次确认密码' password='true' bindinput='inputPassWordAgain'></input>
-  <text class='register-know'>点击「立即注册」按钮，即代表你同意</text><text class='platform-protocol' catchtap='onClickPlatform'>《平台协议》</text>
-  <button class='ui-width-100 ui-mt-20' catchtap='onClickRegister' type='primary'>立即注册</button>
 
+<view class='page-content' wx:if="{{noRegister}}">
+  <form bindsubmit="onClickRegister" report-submit="true">
+    <input name="phone" class='input-border' placeholder='请输入手机号' focus='true' type="number"></input>
+    <input name="pwd" class='input-border' placeholder='登录密码最小为6位' password='true'></input>
+    <input name="pwdAgain" class='input-border' placeholder='再次确认密码' password='true'></input>
+    <text class='register-know'>点击「立即注册」按钮，即代表你同意</text>
+    <text class='platform-protocol' catchtap='onClickPlatform'>《平台协议》</text>
+    <button class='ui-width-100 ui-mt-20' formType="submit" type='primary'>立即注册</button>
+  </form>
 </view>
 
 <view wx:else>

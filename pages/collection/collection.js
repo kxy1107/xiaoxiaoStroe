@@ -82,19 +82,6 @@ Page({
 
 
   },
-  onHide: function () {
-    // 页面隐藏
-  },
-  onUnload: function () {
-    // 页面关闭
-  },
-  onShareAppMessage: function () {
-    return {
-      title: '我的收藏列表',
-      desc: '我想买这些',
-      path: 'pages/index/index'
-    }
-  }
 
 
 

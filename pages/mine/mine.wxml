@@ -1,7 +1,7 @@
 <!--pages/mine/mine.wxml-->
 
 <view>
-  <view>
+  <view wx:if="{{myInfo}}">
     <block wx:for="{{myInfo.ContactList}}">
       <view class="contact-item" catchtap="onItemClick" data-index="{{index}}">
         <image class="contact-img" src="{{item.ContactIcon}}"></image>
@@ -9,8 +9,14 @@
       </view>
     </block>
   </view>
-  <view wx:if = "{{myInfo.QrCode}}" class="my-wechat-qr-code" catchtap="onClickQrCode">
+  <view wx:if="{{myInfo.QrCode}}" class="my-wechat-qr-code" catchtap="onClickQrCode">
     <image class="my-wechat-qr-code-img" src="{{myInfo.QrCode}}"></image>
   </view>
-  <button catchtap='onClickRegisterNow' type='primary'>我也要上传商品</button>
+  <view wx:if="{{isMySelf}}">
+    <text>你已注册成为商家，可以前往</text> 
+    <text selectable='true' class='back-link'>http://jianyuejizhang.cn/</text> 
+    <text>登录上传商品</text>
+  </view>
+  <button catchtap='onClickRegisterNow' class='ui-mt-20' type='primary'>我也要上传商品</button>
+  <button wx:if="{{isMySelf}}" catchtap='clickEnterMyShop' class='ui-mt-20' type='primary'>进入自己小卖铺</button>
 </view>

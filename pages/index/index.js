@@ -12,8 +12,6 @@ Page({
     hotList: [],
     newList: [],
     bannerList: [],
-
-
   },
 
 
@@ -62,24 +60,23 @@ Page({
 
       });
   },
+  onLoad: function (options) {
+    if (typeof options.belongUser != "undefined" && options.belongUser != "") {
+      app.globalData.belongUser = options.belongUser;
+    }
 
-  onLoad: function () {
+  },
+  onShow: function () {
     let that = this;
     that.getIndexInfo();
-    // app.getUserInfo(function (res) {
-    //   console.log("index--app.getUserInfo");
-    //   console.log(res)
-    //   if (res) {
-    //     that.getIndexInfo();
-    //     console.log("index--that.getIndexInfo()");
-    //   }
-    // });
+   
+  
   },
   onShareAppMessage: function (res) {
   
     return {
-      title: '买买买个蛋',
-      path: 'pages/index/index',
+      title: '我家小卖铺',
+      path: 'pages/index/index?belongUser="' + app.globalData.belongUser,
       success: function (res) {
         // 转发成功
       },

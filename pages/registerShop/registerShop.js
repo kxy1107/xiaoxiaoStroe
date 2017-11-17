@@ -1,7 +1,4 @@
 // pages/registerShop/registerShop.js
-let phoneNumber = "";
-let password = "";
-let passwordAgain = "";
 let app = getApp();
 let util = require("../../utils/util.js");
 Page({
@@ -14,16 +11,6 @@ Page({
   },
 
 
-  inputPhone: function (e) {
-    phoneNumber = e.detail.value;
-  },
-  inputPassWord: function (e) {
-    password = e.detail.value;
-  },
-  inputPassWordAgain: function (e) {
-    passwordAgain = e.detail.value;
-  },
-
 
   onClickPlatform:function(){
     wx.navigateTo({
@@ -32,16 +19,23 @@ Page({
   },
 
   //点击注册
-  onClickRegister: function () {
-    if (!this.checkInput()) {
+  onClickRegister: function (e) {
+    var phone = e.detail.value.phone;
+    var pwd = e.detail.value.pwd;
+    var pwdAgain = e.detail.value.pwdAgain;
+    var formID = e.detail.formId;
+    console.log(e);
+
+    if (!this.checkInput(phone, pwd, pwdAgain)) {
       return;
     }
     let that = this;
     let url = app.globalData.serverAddress + 'registerShoper';
     let data = {
       UserNo: app.globalData.userInfo.UserNo,
-      Phone: phoneNumber,
-      Password: password,
+      Phone: phone,
+      Password: pwd,
+      FormID: formID,
 
     };
     util.HttpGet(url, data, "",
@@ -64,18 +58,18 @@ Page({
   },
 
   //输入框内容校验
-  checkInput: function () {
-    if (phoneNumber == "") {
+  checkInput: function (phone, pwd, pwdAgain) {
+    if (phone == "") {
       wx.showToast({
         title: '手机号不能为空',
       });
       return false;
-    } else if (password.length < 6) {
+    } else if (pwd.length < 6) {
       wx.showToast({
         title: '密码不能少于6位',
       });
       return false;
-    } else if (passwordAgain != password) {
+    } else if (pwdAgain != pwd) {
       wx.showToast({
         title: '两次输入的密码不一致',
       });
@@ -111,38 +105,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+ 
 })
